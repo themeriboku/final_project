@@ -1,15 +1,49 @@
 # import database module
+import csv, os
+
+import database
+
+from database import Database
+
+from database import Table
+
+from database import persons
+
+from database import login
 
 # define a funcion called initializing
 
+my_db = Database()
+
+table1 = Table('login', login)
+table2 = Table('persons', persons)
+
+my_db.insert(table1)
+my_db.insert(table2)
+my_table1 = my_db.search('login')
+my_table2 = my_db.search('persons')
+
 def initializing():
-    pass
 
 # here are things to do in this function:
 
     # create an object to read all csv files that will serve as a persistent state for this program
+    with open('persons.csv', mode='r') as file:
+        rows = csv.reader(file)
+        for r in rows:
+            print(r)
 
-    # create all the corresponding tables for those csv files
+
+    with open('login.csv', mode='r') as file:
+        rows = csv.reader(file)
+        for r in rows:
+            print(r)
+
+
+
+    # create all the corresponding tables for those csv file
+
+
 
     # see the guide how many tables are needed
 
@@ -19,7 +53,14 @@ def initializing():
 # define a funcion called login
 
 def login():
-    pass
+    username = (input('please enter username:'))
+    password = (input('please enter password:'))
+
+    user = table1.filter(lambda x: x['username'] == username and x['password'] == password)
+    if user.table:
+        return user.select(['ID', 'role'])[0]  # Return the first entry if found
+    else:
+        return None
 
 # here are things to do in this function:
    # add code that performs a login task
@@ -33,7 +74,7 @@ def exit():
 # here are things to do in this function:
    # write out all the tables that have been modified to the corresponding csv files
    # By now, you know how to read in a csv file and transform it into a list of dictionaries. For this project, you also need to know how to do the reverse, i.e., writing out to a csv file given a list of dictionaries. See the link below for a tutorial on how to do this:
-   
+
    # https://www.pythonforbeginners.com/basics/list-of-dictionaries-to-csv-in-python
 
 
