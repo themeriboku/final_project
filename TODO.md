@@ -6,8 +6,9 @@ admin
 student
 - see a  invitations
 - accept or deny invitations
-- see and modify the project
 
+member
+- see and modify his or her project
 
 lead
 - send invitations to students
