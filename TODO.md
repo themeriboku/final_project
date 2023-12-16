@@ -1,15 +1,12 @@
-Todo
-
-
 admin
--can update table
--can access database
+- can update table
+- can access database
 
 
 student
--see a  invitations
--accept or deny invitations
--see and modify the project
+- see a  invitations
+- accept or deny invitations
+- see and modify the project
 
 
 lead
