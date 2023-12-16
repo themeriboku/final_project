@@ -1,19 +1,32 @@
 Todo
+admin
+-can update table
+-can access database
+
+student
+-see a  invitations
+-accept or deny invitations
+-see and modify the project
+
+lead
+- send invitations to students
+- add member to group
+- request faculty to be advisor
+- submit project
 
 faculty
-- can access to project but can't modify project
-- can see project status
-- can request to modify the project
+- accept or deny initations(advisor)
+- see detail of project
+- Evaluate projects
+  
 
 advisor
-- can access to project 
-- can modify the project without permission
-- can see project status
+- can request to be supervisor
+- accept or deny response
+- Evaluate projects
+- Approve project
+- 
 
-admin
-- can access to the project
-- can modify the project
-- keep update the project
-- debug the code
+
 
 
