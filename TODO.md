@@ -3,10 +3,12 @@ admin
 -can update table
 -can access database
 
+
 student
 -see a  invitations
 -accept or deny invitations
 -see and modify the project
+
 
 lead
 - send invitations to students
@@ -25,7 +27,7 @@ advisor
 - accept or deny response
 - Evaluate projects
 - Approve project
-- 
+  
 
 
 
