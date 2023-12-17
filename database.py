@@ -13,7 +13,7 @@ with open(os.path.join(__location__, 'persons.csv')) as f:
         persons.append(dict(r))
 
 login = []
-with open(os.path.join(__location__, 'persons.csv')) as f:
+with open(os.path.join(__location__, 'login.csv')) as f:
     rows = csv.DictReader(f)
     for r in rows:
         login.append(dict(r))
@@ -84,9 +84,19 @@ class Table:
                     dict_temp[key] = item1[key]
             temps.append(dict_temp)
         return temps
+    def insert_row(self, dict_row):
+        self.table.append(dict_row)
+
+    def update_row(self, key_main, val_main, key_update, val_update):
+        for i in self.table:
+            if i[key_main] == val_main:
+                i[key_update] = val_update
+
     def __str__(self):
         return self.table_name + ':' + str(self.table)
 
 # modify the code in the Table class so that it supports the insert operation where an entry can be added to a list of dictionary
 
 # modify the code in the Table class so that it supports the update operation where an entry's value associated with a key can be updated
+# print(login)
+# print(persons)

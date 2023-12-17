@@ -1,15 +1,10 @@
 # import database module
 import csv, os
 
-import database
 
-from database import Database
+from database import Database, Table, persons, login
 
-from database import Table
 
-from database import persons
-
-from database import login
 
 # define a funcion called initializing
 
@@ -24,43 +19,47 @@ my_table1 = my_db.search('login')
 my_table2 = my_db.search('persons')
 
 def initializing():
-
 # here are things to do in this function:
 
     # create an object to read all csv files that will serve as a persistent state for this program
+    person = []
     with open('persons.csv', mode='r') as file:
-        rows = csv.reader(file)
+        rows = csv.DictReader(file)
         for r in rows:
-            print(r)
+            person.append(r)
+    print(person)
 
-
+    login = []
     with open('login.csv', mode='r') as file:
-        rows = csv.reader(file)
+        rows = csv.DictReader(file)
         for r in rows:
-            print(r)
-
-
+            login.append(r)
+    print(login)
 
     # create all the corresponding tables for those csv file
-
-
-
     # see the guide how many tables are needed
-
     # add all these tables to the database
 
 
 # define a funcion called login
 
 def login():
-    username = (input('please enter username:'))
-    password = (input('please enter password:'))
+    username = str(input('please enter username: '))
+    password = str(input('please enter password: '))
 
-    user = table1.filter(lambda x: x['username'] == username and x['password'] == password)
-    if user.table:
-        return user.select(['ID', 'role'])[0]  # Return the first entry if found
+    user_filter = table1.filter(lambda x: x['username'] == username and x['password'] == password)
+    user = user_filter.select(['ID', 'role'])
+    if user is not None and user != []:
+        # print(user.select(['ID', 'role']))
+        print(user)
+        # Return the first entry if found
     else:
         return None
+
+    
+
+
+
 
 # here are things to do in this function:
    # add code that performs a login task
@@ -79,6 +78,68 @@ def exit():
 
 
 # make calls to the initializing and login functions defined above
+class User:
+    def __init__(self, username, password, id, role):
+        self.__username = username
+        self.__password = password
+        self.__id = id
+        self.__role = role
+
+
+
+class Admin(User):
+    pass
+
+
+class Student(User):
+    def accept_invitation(self):
+        pass
+    def become_lead(self):
+        pass
+
+class Lead(User):
+    def project_create(self):
+        pass
+    def member_scout(self):
+        pass
+    def advisor_scout(self):
+        pass
+    def add_member(self):
+        pass
+    def modify_projects(self):
+        pass
+    def submit_project(self):
+        pass
+class Member(User):
+    def modify_projects(self):
+        pass
+
+
+class Faculty(User):
+    def accept_invitaion(self):
+        pass
+
+    def view(self):
+        pass
+
+    def evaluate(self):
+        pass
+
+
+class Advisor(User):
+    def approve_project(self):
+        pass
+
+    def view(self):
+        pass
+
+    def evaluate_project(self):
+        pass
+
+
+
+
+
 
 initializing()
 val = login()
