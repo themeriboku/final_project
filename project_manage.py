@@ -48,13 +48,18 @@ def login():
     password = str(input('please enter password: '))
 
     user_filter = table1.filter(lambda x: x['username'] == username and x['password'] == password)
-    user = user_filter.select(['ID', 'role'])
-    if user is not None and user != []:
-        # print(user.select(['ID', 'role']))
-        print(user)
-        # Return the first entry if found
+        #     user = user_filter.select(['ID', 'role'])
+        #
+        #     if user is not None and user != []:
+        #         # print(user.select(['ID', 'role']))
+        #         print(user)
+        #         # Return the first entry if found
     else:
         return None
+    if user_filter.filter(lambda x: x['role'] == 'admin'):
+        user_role = Admin
+
+
 
     
 
@@ -78,63 +83,6 @@ def exit():
 
 
 # make calls to the initializing and login functions defined above
-class User:
-    def __init__(self, username, password, id, role):
-        self.__username = username
-        self.__password = password
-        self.__id = id
-        self.__role = role
-
-
-
-class Admin(User):
-    pass
-
-
-class Student(User):
-    def accept_invitation(self):
-        pass
-    def become_lead(self):
-        pass
-
-class Lead(User):
-    def project_create(self):
-        pass
-    def member_scout(self):
-        pass
-    def advisor_scout(self):
-        pass
-    def add_member(self):
-        pass
-    def modify_projects(self):
-        pass
-    def submit_project(self):
-        pass
-class Member(User):
-    def modify_projects(self):
-        pass
-
-
-class Faculty(User):
-    def accept_invitaion(self):
-        pass
-
-    def view(self):
-        pass
-
-    def evaluate(self):
-        pass
-
-
-class Advisor(User):
-    def approve_project(self):
-        pass
-
-    def view(self):
-        pass
-
-    def evaluate_project(self):
-        pass
 
 
 
