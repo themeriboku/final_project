@@ -18,6 +18,17 @@ with open(os.path.join(__location__, 'login.csv')) as f:
     for r in rows:
         login.append(dict(r))
 
+Project = []
+with open(os.path.join(__location__, 'Project.csv')) as f:
+    rows = csv.DictReader(f)
+    for r in rows:
+        Project.append(dict(r))
+
+Invitation = []
+with open(os.path.join(__location__, 'Invitations.csv'))as f:
+    rows = csv.DictReader(f)
+    for r in rows:
+        Invitation.append(dict(r))
 
 # add in code for a Database class
 class Database:

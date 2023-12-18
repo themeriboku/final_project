@@ -1,3 +1,12 @@
+
+from database import Database, Table, Project, login, persons, Invitation
+
+db = Database()
+info_Project = Table('Project', Project)
+info_invitation = Table('Invitations', Invitation)
+info_login = Table('login', login)
+info_person = Table('persons', persons)
+
 class User:
     def __init__(self, username, password, id, role):
         self.__username = username
@@ -13,9 +22,11 @@ class Admin(User):
 
 
 class Student(User):
-    def see_invaitation(self):
+    def see_invitation(self):
         pass
     def accept_invitation(self):
+        pass
+    def deny_invitation(self):
         pass
     def become_lead(self):
         pass
