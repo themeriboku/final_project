@@ -13,6 +13,8 @@ class Admin(User):
 
 
 class Student(User):
+    def see_invaitation(self):
+        pass
     def accept_invitation(self):
         pass
     def become_lead(self):
@@ -37,10 +39,16 @@ class Member(User):
 
 
 class Faculty(User):
+    def see_invitation(self):
+        pass
+
     def accept_invitaion(self):
         pass
 
-    def view(self):
+    def deny_invitation(self):
+        pass
+
+    def view_project(self):
         pass
 
     def evaluate(self):

@@ -84,8 +84,9 @@ class Table:
                     dict_temp[key] = item1[key]
             temps.append(dict_temp)
         return temps
-    def insert_row(self, dict_row):
-        self.table.append(dict_row)
+    def insert_row(self, dict):
+        self.table.append(dict)
+
 
     def update_row(self, key_main, val_main, key_update, val_update):
         for i in self.table:

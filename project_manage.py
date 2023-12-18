@@ -41,30 +41,22 @@ def initializing():
     # add all these tables to the database
 
 
-# define a funcion called login
+# define a function called login
 
 def login():
     username = str(input('please enter username: '))
     password = str(input('please enter password: '))
 
-    user_filter = table1.filter(lambda x: x['username'] == username and x['password'] == password)
-        #     user = user_filter.select(['ID', 'role'])
-        #
-        #     if user is not None and user != []:
-        #         # print(user.select(['ID', 'role']))
-        #         print(user)
-        #         # Return the first entry if found
+    user = table1.filter(lambda x: x['username'] == username and x['password'] == password)
+
+
+    if user is not None and user != []:
+        # print(user.select(['ID', 'role']))
+
+        # Return the first entry if found
+        return user.select(['ID', 'role'])
     else:
         return None
-    if user_filter.filter(lambda x: x['role'] == 'admin'):
-        user_role = Admin
-
-
-
-    
-
-
-
 
 # here are things to do in this function:
    # add code that performs a login task
@@ -91,6 +83,7 @@ def exit():
 
 initializing()
 val = login()
+
 
 # based on the return value for login, activate the code that performs activities according to the role defined for that person_id
 
