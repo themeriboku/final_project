@@ -25,6 +25,9 @@ class Admin(User):
     def update(self):
         pass
 
+    def insert(self):
+        pass
+
 
 class Student(User):
     def see_invitation(self):
@@ -36,12 +39,15 @@ class Student(User):
         else:
             print("No, you are not invited")
 
-    def accept_invitation(self):
-        see = info_invitation.filter(lambda x: ['username'] == self.__username and ['invitation'] == 'invited')
+    def response_invitation(self):
 
-
-    def deny_invitation(self):
-        pass
+        response = input("enter your answer: ")
+        if response == "yes":
+            info_invitation.insert_row("yes")
+        elif response == 'No':
+            info_invitation.insert_row("No")
+        else:
+            pass
 
     def become_lead(self):
         pass
@@ -49,7 +55,9 @@ class Student(User):
 class Lead(User):
 
     def project_create(self):
+        project_name = input("enter your project name: ")
         pass
+
 
     def member_scout(self):
         pass
@@ -82,10 +90,7 @@ class Faculty(User):
         else:
             print("No you are not invited")
 
-    def accept_invitaion(self):
-        pass
-
-    def deny_invitation(self):
+    def response_invitation(self):
         pass
 
     def view_project(self):
