@@ -51,7 +51,7 @@ def login():
 
 
     if user is not None and user != []:
-        # print(user.select(['ID', 'role']))
+        print(user.select(['ID', 'role']))
 
         # Return the first entry if found
         return user.select(['ID', 'role'])
